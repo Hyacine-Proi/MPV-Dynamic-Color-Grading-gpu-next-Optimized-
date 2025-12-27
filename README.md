@@ -61,7 +61,8 @@ Ctrl+z script-message reset-gen
 * **零性能损耗**：生成的 GLSL 为纯硬编码数学公式，无 Uniform 传参开销，不占用 CPU（GPU 纯算）。
 * **防蓝屏机制**：内置 `max(color, 0.0)` 清洗，防止因上游滤镜（如 Anime4K）产生的负值振铃导致渲染崩溃。
 
-##⚖️ 技术方案对比与架构决策
+## 技术方案对比与架构决策
+
 在开发本脚本之前，我们评估了 MPV 现有的多种调色手段。以下是现有方案的局限性以及本方案（Dynamic GLSL）的对比优势：
 1. 对比 FFmpeg 软滤镜 (vf=colorlevels/eq)
 网上常见的方案通常调用 FFmpeg 的软件滤镜（Video Filters）。
